@@ -1,0 +1,144 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* === Fonts === */
+@font-face {
+  font-family: "Playfair Display";
+  src: url("/assets/fonts/PlayfairDisplay-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Crimson Pro";
+  src: url("/assets/fonts/CrimsonPro-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "General Sans";
+  src: url("/assets/fonts/GeneralSans-Variable.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --color-background: oklch(var(--background));
+  --color-foreground: oklch(var(--foreground));
+  --color-card: oklch(var(--card));
+  --color-card-foreground: oklch(var(--card-foreground));
+  --color-popover: oklch(var(--popover));
+  --color-popover-foreground: oklch(var(--popover-foreground));
+  --color-primary: oklch(var(--primary));
+  --color-primary-foreground: oklch(var(--primary-foreground));
+  --color-secondary: oklch(var(--secondary));
+  --color-secondary-foreground: oklch(var(--secondary-foreground));
+  --color-muted: oklch(var(--muted));
+  --color-muted-foreground: oklch(var(--muted-foreground));
+  --color-accent: oklch(var(--accent));
+  --color-accent-foreground: oklch(var(--accent-foreground));
+  --color-destructive: oklch(var(--destructive));
+  --color-destructive-foreground: oklch(var(--destructive-foreground));
+  --color-border: oklch(var(--border));
+  --color-input: oklch(var(--input));
+  --color-ring: oklch(var(--ring));
+  --color-chart-1: oklch(var(--chart-1));
+  --color-chart-2: oklch(var(--chart-2));
+  --color-chart-3: oklch(var(--chart-3));
+  --color-chart-4: oklch(var(--chart-4));
+  --color-chart-5: oklch(var(--chart-5));
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --font-display: "Playfair Display", Georgia, serif;
+  --font-serif: "Crimson Pro", Georgia, serif;
+  --font-sans: "General Sans", system-ui, sans-serif;
+}
+
+:root {
+  /* Warm romantic palette — deep rose + cream + gold */
+  --background: 0.975 0.008 60;
+  --foreground: 0.18 0.035 30;
+
+  --card: 0.99 0.005 50;
+  --card-foreground: 0.18 0.035 30;
+
+  --popover: 0.99 0.005 50;
+  --popover-foreground: 0.18 0.035 30;
+
+  /* Deep rose/burgundy primary */
+  --primary: 0.42 0.16 15;
+  --primary-foreground: 0.98 0.005 50;
+
+  /* Warm cream secondary */
+  --secondary: 0.94 0.02 60;
+  --secondary-foreground: 0.25 0.04 30;
+
+  --muted: 0.93 0.015 55;
+  --muted-foreground: 0.5 0.03 40;
+
+  /* Gold accent */
+  --accent: 0.78 0.1 75;
+  --accent-foreground: 0.15 0.04 30;
+
+  --destructive: 0.5 0.22 25;
+  --destructive-foreground: 0.98 0.005 50;
+
+  --border: 0.87 0.025 50;
+  --input: 0.87 0.025 50;
+  --ring: 0.42 0.16 15;
+
+  --radius: 0.5rem;
+
+  --chart-1: 0.48 0.18 20;
+  --chart-2: 0.65 0.12 55;
+  --chart-3: 0.75 0.08 85;
+  --chart-4: 0.38 0.1 250;
+  --chart-5: 0.55 0.15 160;
+
+  --sidebar: 0.97 0.01 55;
+  --sidebar-foreground: 0.18 0.035 30;
+  --sidebar-primary: 0.42 0.16 15;
+  --sidebar-primary-foreground: 0.98 0.005 50;
+  --sidebar-accent: 0.93 0.015 55;
+  --sidebar-accent-foreground: 0.25 0.04 30;
+  --sidebar-border: 0.87 0.025 50;
+  --sidebar-ring: 0.42 0.16 15;
+}
+
+* {
+  border-color: oklch(var(--border));
+  outline-color: oklch(var(--ring) / 0.5);
+}
+
+body {
+  background-color: oklch(var(--background));
+  color: oklch(var(--foreground));
+  font-family: "General Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Romantic texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='400' height='400'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='400' height='400' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 0;
+}
+
+.font-display {
+  font-family: "Playfair Display", Georgia, serif;
+}
+
+.font-serif {
+  font-family: "Crimson Pro", Georgia, serif;
+}
